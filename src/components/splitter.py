@@ -1,6 +1,8 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from src.utils.logger import logger
+import sys
+from src.utils.exception import CustomException
 
 
 class Splitter:
@@ -31,5 +33,5 @@ class Splitter:
                 f"Error occurred while splitting documents: {str(e)}"
             )
 
-            raise e
+            raise CustomException(e, sys)
 

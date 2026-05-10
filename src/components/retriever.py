@@ -1,4 +1,6 @@
 from src.utils.logger import logger
+import sys
+from src.utils.exception import CustomException
 
 
 class Retriever:
@@ -26,4 +28,4 @@ class Retriever:
                 f"Error creating retriever: {str(e)}"
             )
 
-            raise e
+            raise CustomException(e, sys)

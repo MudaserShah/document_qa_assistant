@@ -1,6 +1,7 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from src.utils.logger import logger
-
+from src.utils.exception import CustomException
+import sys
 
 class EmbeddingModel:
 
@@ -22,7 +23,7 @@ class EmbeddingModel:
 
             logger.exception(f"Failed to load embedding model: {str(e)}")
 
-            raise e
+            raise CustomException(e, sys)
 
     def get_embeddings(self, chunks):
 
@@ -42,4 +43,4 @@ class EmbeddingModel:
 
             logger.exception(f"Failed to create embeddings: {str(e)}")
 
-            raise e
+            raise CustomException(e, sys)

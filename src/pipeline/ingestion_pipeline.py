@@ -2,13 +2,14 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+import sys
 from src.components.loader import LoadPDF
 from src.components.splitter import Splitter
 from src.components.embeddings import EmbeddingModel
 from src.components.vectorstore import QdrantDB
 from src.utils.logger import logger
-
+from src.config import PDF_PATH
+from src.utils.exception import CustomException
 
 class IngestionPipeline:
 
@@ -19,8 +20,7 @@ class IngestionPipeline:
             logger.info("Starting ingestion pipeline")
 
             loader = LoadPDF()
-            documents = loader.load_pdf(
-                "/home/syed-mudaser-mazhar/document_qa_assistant/data/document.pdf"
+            documents = loader.load_pdf(PDF_PATH
             )
 
             splitter = Splitter()
@@ -35,8 +35,6 @@ class IngestionPipeline:
             vectorstore = db.create_vectorstore(
                 documents=split_document,
                 embeddings=embedding,
-                url=os.getenv("QDRANT_URL"),
-                api_key=os.getenv("QDRANT_API_KEY")
             )
 
             logger.info("Ingestion pipeline completed successfully")
@@ -47,4 +45,4 @@ class IngestionPipeline:
 
             logger.error(f"Error in ingestion pipeline: {str(e)}")
 
-            raise e
+            raise CustomException(e, sys)

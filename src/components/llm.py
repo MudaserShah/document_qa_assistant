@@ -1,4 +1,6 @@
 from langchain_openai import ChatOpenAI
+from src.utils.exception import CustomException
+import sys
 
 from dotenv import load_dotenv
 
@@ -33,4 +35,4 @@ class LoadLLM:
                 f"Error loading LLM: {str(e)}"
             )
 
-            raise e
+            raise CustomException(e, sys)

@@ -1,6 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
-
+import sys
 from src.utils.logger import logger
+from src.utils.exception import CustomException
 
 class LoadPDF:
 
@@ -28,4 +29,4 @@ class LoadPDF:
                 f"Error occurred while loading PDF: {str(e)}"
             )
 
-            raise e
+            raise CustomException(e, sys)

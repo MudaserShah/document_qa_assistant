@@ -5,7 +5,8 @@ from src.components.llm import LoadLLM
 from src.components.embeddings import EmbeddingModel
 from src.components.vectorstore import QdrantDB
 from src.utils.logger import logger
-
+import sys
+from src.utils.exception import CustomException
 
 SYSTEM_PROMPT = """You are a helpful assistant that answers questions based on the provided context.
 
@@ -54,7 +55,7 @@ class RAGPipeline:
 
             logger.error(f"Error loading vector store: {str(e)}")
 
-            raise e
+            raise CustomException(e, sys)
 
     def run_query(self, vectorstore, query):
 
@@ -87,4 +88,4 @@ class RAGPipeline:
 
             logger.error(f"Error in RAG pipeline: {str(e)}")
 
-            raise e
+            raise CustomException(e, sys)

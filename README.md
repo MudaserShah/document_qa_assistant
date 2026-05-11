@@ -91,41 +91,6 @@ document_qa_assistant/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
-```bash
-Document_QA_Assistant/
-│
-├── app.py
-├── requirements.txt
-├── .env
-├── README.md
-│
-├── src/
-│   ├── components/
-│   │   ├── loader.py
-│   │   ├── splitter.py
-│   │   ├── embedding.py
-│   │   ├── vectorstore.py
-│   │   └── retriever.py
-│   │
-│   ├── pipeline/
-│   │   ├── ingestion_pipeline.py
-│   │   └── retrieval_pipeline.py
-│   │
-│   ├── logger/
-│   │   └── logging.py
-│   │
-│   └── utils/
-│       └── helper.py
-│
-├── data/
-│   └── documents/
-│
-├── logs/
-│
-└── notebooks/
-````
-
----
 
 # Installation
 

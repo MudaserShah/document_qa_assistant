@@ -1,4 +1,4 @@
-PDF_PATH = "/home/syed-mudaser-mazhar/document_qa_assistant/data/document.pdf"
+PDF_PATH = "data/document.pdf"
 
 COLLECTION_NAME = "rag_collection"
 

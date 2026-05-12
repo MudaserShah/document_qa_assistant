@@ -216,31 +216,6 @@ Example Response:
 
 ---
 
-# Future Improvements
-
-* Streamlit frontend
-* Multi-document support
-* Authentication system
-* Chat history memory
-* Hybrid search
-* Multi-modal document support
-* Docker deployment
-* Kubernetes deployment
-* CI/CD pipeline
-
----
-
-# Example Use Cases
-
-* Research assistant
-* Company knowledge base
-* Legal document analysis
-* Medical document search
-* Educational chatbot
-* PDF-based AI assistant
-
----
-
 # Requirements
 
 ```txt
